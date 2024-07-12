@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  void Function()? onTap;
+
+  LoginPage({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -77,24 +79,27 @@ class LoginPage extends StatelessWidget {
             // Text at the bottom
             Column(
               children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 18,
-                  ),
-                  decoration: BoxDecoration(
-                      border:
-                          Border.all(color: Colors.blue.shade600, width: 1.5),
-                      borderRadius: BorderRadius.circular(32),
-                      color: Colors.transparent),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Center(
-                      child: Text(
-                        "Create new account",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: Colors.blue.shade600,
-                            fontSize: 16),
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 18,
+                    ),
+                    decoration: BoxDecoration(
+                        border:
+                            Border.all(color: Colors.blue.shade600, width: 1.5),
+                        borderRadius: BorderRadius.circular(32),
+                        color: Colors.transparent),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Center(
+                        child: Text(
+                          "Create new account",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue.shade600,
+                              fontSize: 16),
+                        ),
                       ),
                     ),
                   ),
