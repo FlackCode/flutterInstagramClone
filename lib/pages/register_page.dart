@@ -4,6 +4,11 @@ import 'package:flutterinstagramclone/components/my_textfield.dart';
 class RegisterPage extends StatelessWidget {
   void Function()? onTap;
 
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+
   RegisterPage({super.key, required this.onTap});
 
   @override
@@ -30,21 +35,35 @@ class RegisterPage extends StatelessWidget {
                   width: 64,
                 ),
                 const SizedBox(
-                  height: 100,
+                  height: 130,
                 ),
-                const MyTextfield(hintText: "Username"),
+                MyTextfield(
+                  hintText: "Username",
+                  controller: usernameController,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
-                const MyTextfield(hintText: "Email"),
+                MyTextfield(
+                  hintText: "Email",
+                  controller: emailController,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
-                const MyTextfield(hintText: "Password"),
+                MyTextfield(
+                  hintText: "Password",
+                  obscureText: true,
+                  controller: passwordController,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
-                const MyTextfield(hintText: "Confirm password"),
+                MyTextfield(
+                  hintText: "Confirm password",
+                  obscureText: true,
+                  controller: confirmPasswordController,
+                ),
                 const SizedBox(
                   height: 10,
                 ),
@@ -70,6 +89,9 @@ class RegisterPage extends StatelessWidget {
                 ),
               ],
             )),
+            const SizedBox(
+              height: 60,
+            ),
             GestureDetector(
               onTap: onTap,
               child: Padding(

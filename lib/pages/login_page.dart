@@ -4,6 +4,9 @@ import 'package:flutterinstagramclone/components/my_textfield.dart';
 class LoginPage extends StatelessWidget {
   void Function()? onTap;
 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   LoginPage({super.key, required this.onTap});
 
   @override
@@ -32,11 +35,18 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     height: 130,
                   ),
-                  const MyTextfield(hintText: "Email"),
+                  MyTextfield(
+                    hintText: "Email",
+                    controller: emailController,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const MyTextfield(hintText: "Password"),
+                  MyTextfield(
+                    hintText: "Password",
+                    obscureText: true,
+                    controller: passwordController,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterinstagramclone/services/auth/login_or_register.dart';
+import 'package:flutterinstagramclone/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: HomePage(),
     );
   }
 }
