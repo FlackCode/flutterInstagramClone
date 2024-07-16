@@ -63,7 +63,7 @@ class PostItem extends StatelessWidget {
         LayoutBuilder(
           builder: (context, constraints) {
             final width = constraints.maxWidth;
-            return Container(
+            return SizedBox(
               width: width,
               height: width,
               child: Image.asset(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutterinstagramclone/components/my_navbar.dart';
 import 'package:flutterinstagramclone/components/my_profileappbar.dart';
 import 'package:flutterinstagramclone/components/my_profilebutton.dart';
@@ -156,40 +155,38 @@ class ProfilePage extends StatelessWidget {
                           margin: const EdgeInsets.only(top: 16),
                           child: Row(
                             children: [
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                              color: Colors.white, width: 1)),
-                                      padding: const EdgeInsets.all(20),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                      ),
+                              Column(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                            color: Colors.white, width: 1)),
+                                    padding: const EdgeInsets.all(20),
+                                    child: const Icon(
+                                      Icons.add,
+                                      color: Colors.white,
                                     ),
-                                    SizedBox(
-                                      height: 4,
-                                    ),
-                                    Text(
-                                      "New",
-                                      style: TextStyle(
-                                          fontSize: 14, color: Colors.white),
-                                    )
-                                  ],
-                                ),
+                                  ),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  const Text(
+                                    "New",
+                                    style: TextStyle(
+                                        fontSize: 14, color: Colors.white),
+                                  )
+                                ],
                               )
                             ],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 24,
                         ),
                         Container(
                           margin: const EdgeInsets.only(top: 8),
-                          child: ProfileNavigation(),
+                          child: const ProfileNavigation(),
                         )
                       ],
                     ),

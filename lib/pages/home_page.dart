@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/components/my_appbar.dart';
 import 'package:flutterinstagramclone/components/my_navbar.dart';
 import 'package:flutterinstagramclone/components/stories_component.dart';
-import 'package:flutterinstagramclone/components/post_item.dart'; // Import your PostItem component
+import 'package:flutterinstagramclone/components/post_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +14,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.black,
       bottomNavigationBar: MyNavbar(),
       body: Column(
@@ -25,9 +25,9 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   StoriesComponent(),
-                  const PostItem(),
-                  const PostItem(),
-                  const PostItem(),
+                  PostItem(),
+                  PostItem(),
+                  PostItem(),
                 ],
               ),
             ),

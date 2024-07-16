@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ProfileNavigation extends StatefulWidget {
+  const ProfileNavigation({super.key});
+
   @override
   _ProfileNavigationState createState() => _ProfileNavigationState();
 }

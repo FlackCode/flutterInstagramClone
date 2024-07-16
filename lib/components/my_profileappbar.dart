@@ -14,9 +14,9 @@ class MyProfileappbar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
+          const Row(
             children: [
-              const Text(
+              Text(
                 "flackcodes",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
