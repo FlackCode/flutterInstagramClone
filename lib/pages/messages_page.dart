@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/components/messages_appbar.dart';
+import 'package:flutterinstagramclone/components/notes_component.dart';
 
 class MessagesPage extends StatelessWidget {
   const MessagesPage({super.key});
@@ -33,6 +34,32 @@ class MessagesPage extends StatelessWidget {
               style: const TextStyle(color: Colors.white),
             ),
           ),
+          const NotesComponent(),
+          const SizedBox(
+            height: 16,
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Messages",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
+                Text(
+                  "Requests",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );

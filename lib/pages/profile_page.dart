@@ -108,14 +108,14 @@ class ProfilePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          "dima",
+                          "flack",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 18),
                         ),
                         const Text(
-                          "gymcel",
+                          "coding...",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                         Container(

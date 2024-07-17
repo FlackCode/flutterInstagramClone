@@ -18,8 +18,8 @@ class MessagesAppbar extends StatelessWidget {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
               Navigator.pop(context);
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const HomePage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
             },
           ),
           const SizedBox(
@@ -28,7 +28,7 @@ class MessagesAppbar extends StatelessWidget {
           const Row(
             children: [
               Text(
-                "flackcodes",
+                "flack",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,

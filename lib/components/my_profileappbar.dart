@@ -17,7 +17,7 @@ class MyProfileappbar extends StatelessWidget {
           const Row(
             children: [
               Text(
-                "flackcodes",
+                "flack",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,

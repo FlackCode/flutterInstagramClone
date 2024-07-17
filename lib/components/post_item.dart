@@ -32,7 +32,7 @@ class PostItem extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'flackcodes',
+                          'flack',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -112,7 +112,7 @@ class PostItem extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                  'flackcodes',
+                  'flack',
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
