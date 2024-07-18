@@ -50,14 +50,14 @@ class MessagesPage extends StatelessWidget {
                           "Messages",
                           style: TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
                         Text(
                           "Requests",
                           style: TextStyle(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w500,
                               fontSize: 18),
                         ),
                       ],

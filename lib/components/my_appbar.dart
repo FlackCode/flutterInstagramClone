@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/pages/messages_page.dart';
+import 'package:flutterinstagramclone/pages/notification_page.dart';
 
 class MyAppbar extends StatelessWidget {
   const MyAppbar({super.key});
@@ -24,7 +25,11 @@ class MyAppbar extends StatelessWidget {
           IconButton(
             icon:
                 const Icon(Icons.favorite_outline_rounded, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const NotificationPage()));
+            },
           ),
           IconButton(
             icon: const Icon(Icons.chat_bubble_outline_rounded,
