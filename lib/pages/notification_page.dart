@@ -73,6 +73,7 @@ class NotificationPage extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.w500),
                   ),
+                  //Implement listview builder eventually
                   NotificationItem(
                     notificationType: "follow",
                     name: "username6969",

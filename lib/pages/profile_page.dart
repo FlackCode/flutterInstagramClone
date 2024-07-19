@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutterinstagramclone/components/my_navbar.dart';
 import 'package:flutterinstagramclone/components/my_profileappbar.dart';
 import 'package:flutterinstagramclone/components/my_profilebutton.dart';
 import 'package:flutterinstagramclone/components/profile_navigation.dart';
+import 'package:flutterinstagramclone/pages/follows_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -40,9 +42,9 @@ class ProfilePage extends StatelessWidget {
                         const Spacer(),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Column(
+                              const Column(
                                 children: [
                                   Text(
                                     "0",
@@ -58,43 +60,63 @@ class ProfilePage extends StatelessWidget {
                                   )
                                 ],
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 32,
                               ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "17",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Colors.white),
-                                  ),
-                                  Text(
-                                    "followers",
-                                    style: TextStyle(
-                                        fontSize: 16, color: Colors.white),
-                                  )
-                                ],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => FollowsPage(
+                                              pageType: "followers")));
+                                },
+                                child: const Column(
+                                  children: [
+                                    Text(
+                                      "17",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      "followers",
+                                      style: TextStyle(
+                                          fontSize: 16, color: Colors.white),
+                                    )
+                                  ],
+                                ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 32,
                               ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "19",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Colors.white),
-                                  ),
-                                  Text(
-                                    "following",
-                                    style: TextStyle(
-                                        fontSize: 16, color: Colors.white),
-                                  )
-                                ],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => FollowsPage(
+                                              pageType: "followers")));
+                                },
+                                child: const Column(
+                                  children: [
+                                    Text(
+                                      "19",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                          color: Colors.white),
+                                    ),
+                                    Text(
+                                      "following",
+                                      style: TextStyle(
+                                          fontSize: 16, color: Colors.white),
+                                    )
+                                  ],
+                                ),
                               ),
                             ],
                           ),

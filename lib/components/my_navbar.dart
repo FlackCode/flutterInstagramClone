@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/components/my_navitem.dart';
+import 'package:flutterinstagramclone/pages/explore_page.dart';
 import 'package:flutterinstagramclone/pages/home_page.dart';
 import 'package:flutterinstagramclone/pages/profile_page.dart';
 
@@ -17,13 +18,17 @@ class MyNavbar extends StatelessWidget {
             icon: Icons.home,
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const HomePage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
             },
           ),
           MyNavitem(
             icon: Icons.search,
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ExplorePage()));
+            },
           ),
           MyNavitem(
             icon: Icons.add_box_outlined,
