@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutterinstagramclone/services/auth/auth_gate.dart';
+import 'package:flutterinstagramclone/services/auth/auth_service.dart';
 
 class MyProfileappbar extends StatelessWidget {
   const MyProfileappbar({super.key});
+
+  void signOut(BuildContext context) async {
+    final AuthService authService = AuthService();
+    await authService.signOut();
+    print("test");
+    Navigator.pop(context);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => AuthGate()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +60,7 @@ class MyProfileappbar extends StatelessWidget {
                   color: Colors.white,
                   size: 32,
                 ),
-                onPressed: () {},
+                onPressed: () => signOut(context),
               ),
             ],
           )

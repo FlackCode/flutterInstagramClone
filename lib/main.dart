@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/firebase_options.dart';
 import 'package:flutterinstagramclone/services/auth/auth_gate.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
