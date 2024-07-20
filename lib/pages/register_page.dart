@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/components/my_textfield.dart';
+import 'package:flutterinstagramclone/services/auth/auth_service.dart';
 
 class RegisterPage extends StatelessWidget {
   void Function()? onTap;
@@ -7,9 +8,42 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   RegisterPage({super.key, required this.onTap});
+
+  void register(BuildContext context) async {
+    final AuthService authService = AuthService();
+    if (usernameController.text.isNotEmpty &&
+        emailController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty &&
+        confirmPasswordController.text.isNotEmpty) {
+      try {
+        if (passwordController.text == confirmPasswordController.text &&
+            usernameController.text.length > 4) {
+          await authService.registerWithEmailAndPass(emailController.text,
+              usernameController.text, usernameController.text);
+        }
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  title: Text(e.toString()),
+                ));
+      }
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                title: const Text("Some fields are empty."),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +108,18 @@ class RegisterPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(32),
                       color: Colors.blue.shade700),
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8),
-                    child: Center(
-                      child: Text(
-                        "Register",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                            fontSize: 16),
+                  child: GestureDetector(
+                    onTap: () => register(context),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8),
+                      child: Center(
+                        child: Text(
+                          "Register",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                              fontSize: 16),
+                        ),
                       ),
                     ),
                   ),

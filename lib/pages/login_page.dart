@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterinstagramclone/components/my_textfield.dart';
+import 'package:flutterinstagramclone/services/auth/auth_service.dart';
 
 class LoginPage extends StatelessWidget {
   void Function()? onTap;
@@ -8,6 +9,24 @@ class LoginPage extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
 
   LoginPage({super.key, required this.onTap});
+
+  void login(BuildContext context) async {
+    final AuthService authService = AuthService();
+    if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+      try {
+        await authService.loginWithEmailAndPass(
+            emailController.text, passwordController.text);
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  title: Text(e.toString()),
+                ));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,22 +69,25 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 18,
-                    ),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(32),
-                        color: Colors.blue.shade700),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8),
-                      child: Center(
-                        child: Text(
-                          "Log in",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                              fontSize: 16),
+                  GestureDetector(
+                    onTap: () => login(context),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 18,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(32),
+                          color: Colors.blue.shade700),
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8),
+                        child: Center(
+                          child: Text(
+                            "Log in",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                                fontSize: 16),
+                          ),
                         ),
                       ),
                     ),

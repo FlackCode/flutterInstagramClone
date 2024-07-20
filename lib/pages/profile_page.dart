@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutterinstagramclone/components/my_navbar.dart';
 import 'package:flutterinstagramclone/components/my_profileappbar.dart';
 import 'package:flutterinstagramclone/components/my_profilebutton.dart';
@@ -69,7 +68,7 @@ class ProfilePage extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => FollowsPage(
+                                          builder: (context) => const FollowsPage(
                                               pageType: "followers")));
                                 },
                                 child: const Column(
@@ -98,7 +97,7 @@ class ProfilePage extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => FollowsPage(
+                                          builder: (context) => const FollowsPage(
                                               pageType: "followers")));
                                 },
                                 child: const Column(

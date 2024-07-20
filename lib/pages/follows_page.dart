@@ -48,7 +48,7 @@ class FollowsPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Container(
@@ -80,10 +80,10 @@ class FollowsPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          FollowerItem(
+          const FollowerItem(
               imagePath: "assets/defaultpfp.jpg",
               name: "test",
               userName: "test.user")

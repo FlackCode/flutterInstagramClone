@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutterinstagramclone/components/notification_item.dart';
 import 'package:flutterinstagramclone/pages/home_page.dart';
 
