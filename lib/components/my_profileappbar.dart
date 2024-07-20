@@ -8,7 +8,6 @@ class MyProfileappbar extends StatelessWidget {
   void signOut(BuildContext context) async {
     final AuthService authService = AuthService();
     await authService.signOut();
-    print("test");
     Navigator.pop(context);
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => AuthGate()));
