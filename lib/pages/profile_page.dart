@@ -17,7 +17,10 @@ class ProfilePage extends StatelessWidget {
     final FirestoreService firestoreService = FirestoreService();
     final AuthService authService = AuthService();
     User? user = authService.getCurrentUser();
-    return await firestoreService.getUserDocument(user!.uid);
+    if (user != null) {
+      return await firestoreService.getUserDocument(user.uid);
+    }
+    return null;
   }
 
   @override
@@ -28,7 +31,10 @@ class ProfilePage extends StatelessWidget {
         body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>?>(
           future: getUserDocument(),
           builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
+            if (snapshot.connectionState == ConnectionState.waiting ||
+                !snapshot.hasData ||
+                snapshot.data?.data() == null ||
+                snapshot.hasError) {
               return const Center(
                 child: CircularProgressIndicator(
                   color: Colors.white,
@@ -56,11 +62,20 @@ class ProfilePage extends StatelessWidget {
                                 decoration:
                                     const BoxDecoration(shape: BoxShape.circle),
                                 child: ClipOval(
-                                  child: Image.asset(
-                                    "assets/defaultpfp.jpg",
+                                  child: Image.network(
+                                    userData?["profilePictureURL"] ??
+                                        "assets/defaultpfp.jpg",
                                     width: 96,
                                     height: 96,
                                     fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      return Image.asset(
+                                        "assets/defaultpfp.jpg",
+                                        width: 96,
+                                        height: 96,
+                                        fit: BoxFit.cover,
+                                      );
+                                    },
                                   ),
                                 ),
                               ),
@@ -92,7 +107,6 @@ class ProfilePage extends StatelessWidget {
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.pop(context);
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -124,7 +138,6 @@ class ProfilePage extends StatelessWidget {
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        Navigator.pop(context);
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -199,6 +212,7 @@ class ProfilePage extends StatelessWidget {
                                             MaterialPageRoute(
                                                 builder: (context) => EditPage(
                                                       userData: userData,
+                                                      userID: userData?["uid"],
                                                     )));
                                       },
                                     ),

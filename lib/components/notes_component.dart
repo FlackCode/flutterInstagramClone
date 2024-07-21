@@ -14,7 +14,7 @@ class NotesComponent extends StatelessWidget {
         itemBuilder: (context, index) {
           if (index == 0) {
             return const Padding(
-              padding: EdgeInsets.only(left: 24),
+              padding: EdgeInsets.only(left: 24, right: 24),
               child: NoteItem(
                 imagePath: "assets/defaultpfp.jpg",
                 name: "Your note",
@@ -23,7 +23,7 @@ class NotesComponent extends StatelessWidget {
             );
           } else {
             return const Padding(
-              padding: EdgeInsets.only(left: 24),
+              padding: EdgeInsets.only(right: 24),
               child: NoteItem(
                 imagePath: "assets/defaultpfp.jpg",
                 name: "test",
