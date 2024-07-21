@@ -3,14 +3,15 @@ import 'package:flutterinstagramclone/services/auth/auth_gate.dart';
 import 'package:flutterinstagramclone/services/auth/auth_service.dart';
 
 class MyProfileappbar extends StatelessWidget {
-  const MyProfileappbar({super.key});
+  final String userName;
+  const MyProfileappbar({super.key, required this.userName});
 
   void signOut(BuildContext context) async {
     final AuthService authService = AuthService();
     await authService.signOut();
     Navigator.pop(context);
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => AuthGate()));
+        context, MaterialPageRoute(builder: (context) => const AuthGate()));
   }
 
   @override
@@ -24,16 +25,16 @@ class MyProfileappbar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Row(
+          Row(
             children: [
               Text(
-                "flack",
-                style: TextStyle(
+                userName,
+                style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                     color: Colors.white),
               ),
-              Icon(
+              const Icon(
                 Icons.keyboard_arrow_down,
                 color: Colors.white,
               )
